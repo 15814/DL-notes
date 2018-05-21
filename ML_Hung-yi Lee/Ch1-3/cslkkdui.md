@@ -1,4 +1,4 @@
-## cslkkdui
+## Ch1-3
 
 Jp uz xm ui，cs lk kd ui 的笔记。
 
@@ -35,24 +35,24 @@ Jp uz xm ui，cs lk kd ui 的笔记。
 
 1 举例介绍 Regression —— 引入例子，宝可梦进化之后的 CP 值（神奇宝贝战斗力），在之前的 Framework 下进行分析 ——  之后 Pokemon 的例子贯彻这一章的内容，听起来十分有趣，像是在听游戏攻略一般。
 
-2 Gradient Descent	
+2 Gradient Descent
 简单介绍，怎么算（和 NG 的视频说得类似，引入性质）
 针对要求解极值的函数，计算出梯度，然后按照逆梯度方向更新参数，迭代，设定迭代次数让它停止。
 （为什么梯度下降能到极小值，为什么能收敛，这些原理性方面的东西暂时未提及）
 
-### 3 overfitting 
+### 3 overfitting
 竟然举例 用的是 学车（考试场地的开车 —— 公路上开车）
 
 拟合得不好的时候，要考虑是否有未考虑在模型里的重要影响因素。
 hidden factor 造成的（你在箱子里的 函数 可能都是不好的）
-VS 还是 Random noise 
+VS 还是 Random noise
 
 ### Regularization
 
 why smooth better ?
 想要学出来的函数越平滑 == 函数参数的值越接近于0
 函数参数接近于0，则对噪声，及自变量的改变更不敏感。（ 应该还有其他原因未被提及，此处这是直观介绍这一原因。
-如果有必要，自己可以扩展，搜索一下） 
+如果有必要，自己可以扩展，搜索一下）
 
 
 ## ML Lecture 2: Where does the error come from?
@@ -62,7 +62,7 @@ why smooth better ?
 均值 （无差估计 —— 对样本求均值，得出的均值就是原来分布的均值）
 方差 （有偏差的估计—— 对样本求方差，得出的方差不等于原来分布的方差。要修正，有以下等式
 
-$E(s^2) = \frac{N-1}{N}\sigma ^2 $ 
+$E(s^2) = \frac{N-1}{N}\sigma ^2 $
 
 你从样本中计算出来的方差相比 实际分布的方差是偏小的，要乘以 n/n-1 做修正。
 
@@ -84,25 +84,25 @@ $E(s^2) = \frac{N-1}{N}\sigma ^2 $
 首先，要知道 learning rate 设置的好不好，要把 Loss - No. of parameters updates 这一张图画出来。
 
 直观来说，随着参数的更新，学习率应该越来越小（让参数的值更新幅度越来越小）
-所以，学习率是变化的，那么如何变化呢？ 
+所以，学习率是变化的，那么如何变化呢？
 
 有自适应的设置学习率的方法  Adaptive Learning Rates
 
-而且 
+而且
 > Learning rate cannot be one-size-fits-all
 
 同一模型中的 不同参数 的 学习率（更新幅度）是不一样。我们要给每一个参数个性化的学习率。
 
 其中一种常用的自适应方法，叫 Adagrad.
-它更新学习率的方法是 
+它更新学习率的方法是
 
 learning rate = $\frac{\eta ^t}{\sigma ^t}   $
 
-$ \eta ^t = \frac{\eta}{\sqrt{t+1}} $ 
+$ \eta ^t = \frac{\eta}{\sqrt{t+1}} $
 
 $  \sigma ^t = \sqrt{\frac{\Sigma g_i ^2}{t+1}} $
 
-代入化简之后的 learning rate 就是 $\eta / \sqrt{\Sigma g_i ^2}$ 
+代入化简之后的 learning rate 就是 $\eta / \sqrt{\Sigma g_i ^2}$
 
 g_i 是第 i 次计算的 梯度（数值上 对应参数的偏导数）
 
@@ -110,7 +110,7 @@ g_i 是第 i 次计算的 梯度（数值上 对应参数的偏导数）
 
 ![](./Screen Shot 2018-04-16 at 5.07.16 PM.png)
 
-1 一种理解是 反差， 现在的梯度 与过去梯度和的比值，可以看成现在梯度相比过去的一种反差程度的衡量。 
+1 一种理解是 反差， 现在的梯度 与过去梯度和的比值，可以看成现在梯度相比过去的一种反差程度的衡量。
 
 2 最好的步长是 一阶导数/二阶导数 的比值。
 然后 $\sqrt{\Sigma g_i ^2} $ 可以看成是 此处二阶导数 的近似估计。
@@ -118,7 +118,7 @@ g_i 是第 i 次计算的 梯度（数值上 对应参数的偏导数）
 ### 2 SGD （随机梯度下降法）
 <font color='red'> **@acat 要知道他的几种变种的简单区别，如 batch-SGD ， min-batch-SGD。之后补充** </font>
 
-SGD 相比 梯度下降，***SGD 的收敛速度跟快***。	
+SGD 相比 梯度下降，***SGD 的收敛速度跟快***。
 
 ### 3 feature scaling
 将特征缩放到统一单位，有助于梯度下降法 去 寻找极小值。
@@ -126,7 +126,7 @@ SGD 相比 梯度下降，***SGD 的收敛速度跟快***。
 ![](./Screen Shot 2018-04-16 at 5.16.48 PM.png)
 
 其中一种常用的特征缩放，是将变量变成标准变量（在概率论中提及 均值为0，方差为1）
-即 
+即
 $x = \frac{x-E(x)}{\sqrt{var(x)}}$
 
 
@@ -163,31 +163,3 @@ https://zhuanlan.zhihu.com/p/32626442
 https://zhuanlan.zhihu.com/p/22252270
 
 http://ruder.io/optimizing-gradient-descent/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
- 	
