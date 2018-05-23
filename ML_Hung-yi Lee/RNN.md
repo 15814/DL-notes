@@ -27,20 +27,51 @@ LSTM 的神经元 是 Special Neuron: 4 inputs,
 
 Backpropagation through time (BPTT)
 
+注意，RNN-based network 都面临难训练的问题，一个原因就是：It's error surface is rough
+
+<font color="red">why the error surface is tough ?</font> to add reasons.
+
+（注意 RNN 一般用 SIGMOD 函数作为它的激活函数（实践效果最好），而 CNN 则常用 Relu。这里改变激活函数，对 RNN 的训练也没有什么帮助）
+
+其中比较有效处理 RNN 难训练的方法有：
+1. LSTM （can deal with gradient vanishing but can't deal with gradient explode)
+2. GRU (LSTM simplified version)
 
 
+<font color='blue'> **But why LSTM can deal with gradient vanishing problem ?** before that problem, why RNN will have gradient vanishing problem ? further go up is, what is gradient vanishing problem and when it will happen?
+</font>
 
 
+### 5 RNN 的应用
+输入与输出的对应很灵活，处理不定长序列上极具优势
+
+Many to Many (No Limitation)
+
+• Both input and output are both sequences with different lengths. → Sequence to sequence learning
+
+Beyond Sequence
+
+• Syntactic parsing
+
+<font color="red">**Sequence-to-sequence Auto-encoder** - Text     </font>
+
+• To understand the meaning of a word sequence, the order of the words can not be ignored.
+
+![encoder-decoder](pics/encoder-decoder-text.png)
 
 
+**Attention-based Model**
 
+![attention-based model](pics/attention-based-model.png)
 
+![](pics/Visual-Question-Answering.png)
 
+<font color="red">To Learn More ......
+</font>
 
+[The Unreasonable Effectiveness of Recurrent Neural Networks](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
 
-
-
-
+[Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 
 
 
