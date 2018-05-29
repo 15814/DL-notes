@@ -27,11 +27,14 @@ LSTM 的神经元 是 Special Neuron: 4 inputs,
 
 Backpropagation through time (BPTT)
 
-注意，RNN-based network 都面临难训练的问题，一个原因就是：It's error surface is rough
+注意，RNN-based network 都面临难训练的问题，一个原因就是：It's error surface is rough (对应处理这个问题很有用的一招就是 clipping，梯度大到超过某一个预设的最大值，我们就截断，将这个梯度设为这个预设最大值，示意图如下)
+![rnn_error_surface](pics/rnn_error_surface.png)
 
-<font color="red">why the error surface is tough ?</font> to add reasons.
+<font color="red">why the error surface is tough ?</font>
 
-（注意 RNN 一般用 SIGMOD 函数作为它的激活函数（实践效果最好），而 CNN 则常用 Relu。这里改变激活函数，对 RNN 的训练也没有什么帮助）
+to add reasons.
+
+注意 RNN 一般用 SIGMOD 函数作为它的激活函数（实践效果最好），而 CNN 则常用 Relu。这里改变激活函数，对 RNN 的训练也没有什么帮助）
 
 其中比较有效处理 RNN 难训练的方法有：
 1. LSTM （can deal with gradient vanishing but can't deal with gradient explode)
